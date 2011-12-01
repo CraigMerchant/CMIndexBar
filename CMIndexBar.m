@@ -156,7 +156,7 @@
 		return;
 	}
 	
-	NSString *title;
+	NSString *title = nil;
 	int count=0;
 	
 	for (UILabel *subview in self.subviews) 
@@ -192,7 +192,7 @@
 		return;
 	}
 	
-	NSString *title;
+	NSString *title = nil;
 	int count=0;
 	
 	for (UILabel *subview in self.subviews) 
