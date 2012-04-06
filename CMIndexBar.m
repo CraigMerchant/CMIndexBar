@@ -128,11 +128,19 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[super touchesEnded:touches withEvent:event];
-
-	UIView *backgroundView = (UIView*)[self viewWithTag:767];
-	[backgroundView removeFromSuperview];
+  [self touchesEndedOrCancelled:touches withEvent:event];
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  [super touchesCancelled:touches withEvent:event];
+  [self touchesEndedOrCancelled:touches withEvent:event];
+}
+
+- (void) touchesEndedOrCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+ 	UIView *backgroundView = (UIView*)[self viewWithTag:767];
+	[backgroundView removeFromSuperview]; 
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
