@@ -6,23 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuartzCore/QuartzCore.h"
 
 @protocol CMIndexBarDelegate;
 
-@interface CMIndexBar : UIView {
-	NSObject<CMIndexBarDelegate> *delegate;
-	
-	UIColor *highlightedBackgroundColor;
-	UIColor *textColor;
-}
+@interface CMIndexBar : UIView
 
 - (id)init;
 - (id)initWithFrame:(CGRect)frame;
-- (void) setIndexes:(NSArray*)indexes;
-- (void) clearIndex;
+- (void)setIndexes:(NSArray*)indexes;
+- (void)clearIndex;
 
-@property (nonatomic, assign) NSObject<CMIndexBarDelegate> *delegate;
+@property (nonatomic, assign) id<CMIndexBarDelegate> delegate;
 @property (nonatomic, retain) UIColor *highlightedBackgroundColor;
 @property (nonatomic, retain) UIColor *textColor;
 
@@ -30,5 +24,5 @@
 
 @protocol CMIndexBarDelegate<NSObject>
 @optional
-- (void)indexSelectionDidChange:(CMIndexBar *)IndexBar:(int)index:(NSString*)title;
+- (void)indexSelectionDidChange:(CMIndexBar *)indexBar index:(NSInteger)index title:(NSString*)title;
 @end

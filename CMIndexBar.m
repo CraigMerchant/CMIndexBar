@@ -6,6 +6,8 @@
 
 #import "CMIndexBar.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation CMIndexBar
 
 @synthesize delegate;
@@ -113,7 +115,6 @@
 		alphaLabel.backgroundColor = [UIColor clearColor];
 		alphaLabel.textColor = textColor;
 		[self addSubview:alphaLabel];	
-		[alphaLabel release];		
 	}
 }
 
@@ -153,7 +154,6 @@
 	backgroundview.tag = 767;
 	[self addSubview:backgroundview];
 	[self sendSubviewToBack:backgroundview];
-	[backgroundview release];
 	
     if (!self.delegate) return;
 	
@@ -183,7 +183,7 @@
 		}
 	}
 	
-	[delegate indexSelectionDidChange:self:count:title];
+	[delegate indexSelectionDidChange: self index: count title: title];
 }
 
 
@@ -219,7 +219,7 @@
 		}
 	}
 	
-	[delegate indexSelectionDidChange:self:count:title];
+	[delegate indexSelectionDidChange: self index: count title: title];
 }
 
 @end
