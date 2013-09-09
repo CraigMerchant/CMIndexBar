@@ -19,7 +19,7 @@ Delegate:
 
 ToDo:
 -----
-1. Font changing support
+1. ~~Font changing support~~
 1. UITableViewIndexSearch glyph support
 
 
