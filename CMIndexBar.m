@@ -193,7 +193,7 @@
 	}
 	
     if ([delegate respondsToSelector: @selector(indexSelectionDidChange:index:title:)])
-        [delegate indexSelectionDidChange: self index: count title: title];
+        [delegate indexSelectionDidChange: self index: count - 1 title: title];
 }
 
 
@@ -230,7 +230,7 @@
 	}
 	
     if ([delegate respondsToSelector: @selector(indexSelectionDidChange:index:title:)])
-        [delegate indexSelectionDidChange: self index: count title: title];
+        [delegate indexSelectionDidChange: self index: count - 1 title: title];
 }
 
 @end
