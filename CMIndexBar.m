@@ -8,6 +8,12 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+@interface CMIndexBar ()
+
+- (void)initializeDefaults;
+
+@end
+
 @implementation CMIndexBar
 
 @synthesize delegate;
@@ -15,26 +21,29 @@
 @synthesize textColor;
 
 - (id)init {
-    self = [super init];
-	if (self) {
-		// Default colors.
-		self.backgroundColor = [UIColor clearColor];
-		self.textColor = [UIColor blackColor];
-		self.highlightedBackgroundColor = [UIColor lightGrayColor];
+	if ((self = [super init])) {
+        [self initializeDefaults];
 	}
+    
 	return self;
 }
 
-- (id)initWithFrame:(CGRect)frame 
-{
-    if ((self = [super initWithFrame:frame])) 
-    {
-        // Default colors.
-        self.backgroundColor = [UIColor clearColor];
-        self.textColor = [UIColor blackColor];
-		self.highlightedBackgroundColor = [UIColor lightGrayColor];
+- (id)initWithFrame:(CGRect)frame  {
+    if ((self = [super initWithFrame:frame]))  {
+        [self initializeDefaults];
     }
+    
     return self;
+}
+
+- (void)initializeDefaults {
+    // Default colors.
+    self.backgroundColor = [UIColor clearColor];
+    self.textColor = [UIColor blackColor];
+    self.highlightedBackgroundColor = [UIColor lightGrayColor];
+
+    // HelveticaNeue Bold 11pt is a font of native table index
+    self.textFont = [UIFont fontWithName: @"HelveticaNeue-Bold" size: 11];
 }
 
 - (void)layoutSubviews 
@@ -111,7 +120,7 @@
 		UILabel *alphaLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, ypos, self.frame.size.width, 24.0)];
 		alphaLabel.textAlignment = UITextAlignmentCenter;
 		alphaLabel.text = [indexes objectAtIndex:i];
-		alphaLabel.font = [UIFont fontWithName:@"Helvetica" size:13.0];	
+		alphaLabel.font = self.textFont;
 		alphaLabel.backgroundColor = [UIColor clearColor];
 		alphaLabel.textColor = textColor;
 		[self addSubview:alphaLabel];	

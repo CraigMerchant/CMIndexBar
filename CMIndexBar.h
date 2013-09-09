@@ -16,9 +16,10 @@
 - (void)setIndexes:(NSArray*)indexes;
 - (void)clearIndex;
 
-@property (nonatomic, assign) id<CMIndexBarDelegate> delegate;
-@property (nonatomic, retain) UIColor *highlightedBackgroundColor;
-@property (nonatomic, retain) UIColor *textColor;
+@property (nonatomic, weak) id<CMIndexBarDelegate> delegate;
+@property (nonatomic, strong) UIColor *highlightedBackgroundColor;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIFont *textFont;
 
 @end
 
